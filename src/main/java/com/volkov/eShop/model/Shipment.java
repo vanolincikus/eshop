@@ -13,5 +13,5 @@ public class Shipment {
     @Column
     @Enumerated(EnumType.STRING)
     private ShipmentType shipmentType;
-
 }
+

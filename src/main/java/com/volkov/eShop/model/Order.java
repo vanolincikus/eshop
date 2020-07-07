@@ -30,11 +30,16 @@ public class Order {
      @Column
     private Instant dateCompleted;
 
-     @OneToMany
-    private List<Adress>adresses= new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name="shipment_id")
+    private Shipment shipment;
 
-     @OneToMany
-    private List<Item>orderedItems= new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name="adress_id")
+    private Adress adress;
+
+    @OneToMany
+    private Set<Item>items = new HashSet<>();
 
 
 
