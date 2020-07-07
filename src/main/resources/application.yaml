@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eshop
+    username: postgres
+    password: postgres
+    hikari:
+      maximumPoolSize: 15
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show_sql: true
+    format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
