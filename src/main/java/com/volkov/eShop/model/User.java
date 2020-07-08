@@ -7,7 +7,7 @@ import javax.persistence.criteria.*;
 import java.util.*;
 
 @Entity
-@Table(name ="users")
+@Table(name = "users")
 public class User {
     @Id
     private Long id;
@@ -23,18 +23,19 @@ public class User {
     private String phoneNumber;
     @Column
     private String password;
-   @Column
+    @Column
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
-   @OneToMany
-    private  List<Order> orders = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "order_id")
+    private Set<Order>orders = new HashSet<>();
 
-   @ManyToMany
-    @JoinTable(name= "users_adresses",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "address_id"))
-      private Set<Adress>userAdresses= new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "users_adresses",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    private Set<Adress> userAdresses = new HashSet<>();
 
 
 }
