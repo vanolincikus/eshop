@@ -4,7 +4,7 @@ import com.volkov.eShop.model.enums.*;
 import org.hibernate.cache.spi.support.*;
 import org.springframework.boot.autoconfigure.condition.*;
 
-import javax.jws.soap.SOAPBinding;
+
 import javax.persistence.*;
 import java.time.*;
 import java.util.*;
