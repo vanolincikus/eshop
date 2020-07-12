@@ -1,9 +1,11 @@
 package com.volkov.eShop.repository;
 
+import com.volkov.eShop.model.Adress;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import sun.jvm.hotspot.debugger.Address;
+
+
 
 @Repository
-public interface AddressReposytory extends CrudRepository<Address,Long>{
+public interface AddressReposytory extends CrudRepository<Adress,Long>{
 }
