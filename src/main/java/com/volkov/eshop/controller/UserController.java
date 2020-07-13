@@ -5,8 +5,6 @@ import com.volkov.eshop.service.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-
 @RestController
 @RequestMapping("api/users")
 public class UserController {
@@ -34,19 +32,16 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public Optional<User> getUser(@PathVariable("userId") Long userId) {
+    public User getUser(@PathVariable("userId") Long userId) {
+
         return userService.getUserById(userId);
     }
 
     @DeleteMapping("/{userId}")
-    public Optional<User> deleteUser(@PathVariable("userId") Long userId) {
-        Optional<User> user = getUser(userId);
-        try {
-            userService.deleteUser(userId);
-            user.get().setStatus("ok");
-        } catch (Exception e) {
-            user.get().setStatus("delete error");
-        }
-        return user;
+    public User deleteUser(@PathVariable("userId") Long userId) {
+        User user = getUser(userId);
+
+          userService.deleteUser(userId);
+            return user;
     }
 }
